@@ -311,7 +311,7 @@ func main() {
 
 		endpoint = os.Getenv("ES_PROXY_ENDPOINT")
 
-		if len(endpoint) < 0 {
+		if len(endpoint) == 0 {
 			fmt.Println("You need to specify Amazon ElasticSearch endpoint.")
 			fmt.Println("Please run with '-h' for a list of available arguments.")
 			os.Exit(1)
