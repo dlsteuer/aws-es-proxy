@@ -307,7 +307,7 @@ func main() {
 	flag.BoolVar(&nosignreq, "no-sign-reqs", false, "Disable AWS Signature v4")
 	flag.Parse()
 
-	if len(endpoint) < 0 {
+	if len(endpoint) == 0 {
 
 		endpoint = os.Getenv("ES_PROXY_ENDPOINT")
 
@@ -317,6 +317,8 @@ func main() {
 			os.Exit(1)
 		}
 	}
+
+	log.Printf("Starting proxy with endpoint %s\n", endpoint)
 
 	p := newProxy(
 		endpoint,
